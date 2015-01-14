@@ -121,4 +121,34 @@ public class Test0050{
         }
         return resultado;
     }
+    
+    /**
+     * Calculo de raices cuadradas
+     * Los numeros negativos son erroneos
+     * Las exigencias del ejercicio dicen que los resultados no exactos son erroneos
+     * La calculadora esta limitada a 1000
+     */
+    public int raizCuadrada(int numero){
+        int resultado = -1;
+        if(numero > -1 || numero < 1001){
+            boolean found = false;
+            int contador = 0;
+            int auxiliar = 0;
+            while(!found && auxiliar < 1001){
+                auxiliar = multiNum(contador, contador);
+                if(auxiliar == numero){
+                    found = true;
+                    resultado = contador;
+                }else{
+                    contador++;
+                }
+            }
+            if(!found){
+                System.out.println("El numero introducido no tiene raiz cuadrada exacta");
+            }
+        }else{
+            System.out.println("El numero introducido es invalido");
+        }
+        return resultado;
+    }
 }
