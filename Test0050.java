@@ -109,17 +109,15 @@ public class Test0050{
     public int potencia(int base, int exponente){
         int resultado = 0;
         if(base != 0){
+            resultado = 1;
             if(exponente > 0){
-                resultado = 1;
                 for(int contador = 1; contador <= exponente; contador++){
                     resultado = multiNum(resultado, base);
                 }
-            }else{
-                resultado = 1;
-                // Si los parametros del ejercicio permitieran numeros decimales
-                // habria que calcular la potencia dividiendo
-                // Ejemplo: 5^-3 seria 1 / (5*3)
             }
+            // Si los parametros del ejercicio permitieran numeros decimales
+            // habria que calcular la potencia de exponente negativo dividiendo
+            // Ejemplo: 5^-3 seria 1 / (5*3)
         }
         return resultado;
     }
