@@ -29,4 +29,39 @@ public class Test0050{
         }
         return resultado;
     }
+    
+    /**
+     * Divide 2 numeros enteros
+     */
+    public int diviNum(int dividendo, int divisor){
+        int contador = 0;
+        if(dividendo > 0){
+            int auxiliar = dividendo;
+            if(divisor > 0){
+                while(auxiliar >= divisor){
+                    auxiliar -= divisor;
+                    contador++;
+                }
+            }else if(divisor < 0){
+                while(auxiliar >= -divisor){
+                    auxiliar -= -divisor;
+                    contador--;
+                }
+            }
+        }else if(dividendo < 0){
+            int auxiliar = -dividendo;
+            if(divisor > 0){
+                while(auxiliar >= divisor){
+                    auxiliar -= divisor;
+                    contador--;
+                }
+            }else if(divisor < 0){
+                while(auxiliar >= -divisor){
+                    auxiliar -= -divisor;
+                    contador++;
+                }
+            }
+        }
+        return contador;
+    }
 }
