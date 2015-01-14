@@ -64,4 +64,42 @@ public class Test0050{
         }
         return contador;
     }
+    
+    /**
+     * Divide 2 numeros enteros y calcula el resto
+     */
+    public int resto(int dividendo, int divisor){
+        int contador = 0;
+        int auxiliar = 0;
+        if(dividendo > 0){
+            auxiliar = dividendo;
+            if(divisor > 0){
+                while(auxiliar >= divisor){
+                    auxiliar -= divisor;
+                    contador++;
+                }
+            }else if(divisor < 0){
+                while(auxiliar >= -divisor){
+                    auxiliar -= -divisor;
+                    contador--;
+                }
+                auxiliar = -auxiliar;
+            }
+        }else if(dividendo < 0){
+            auxiliar = -dividendo;
+            if(divisor > 0){
+                while(auxiliar >= divisor){
+                    auxiliar -= divisor;
+                    contador--;
+                }
+                auxiliar = -auxiliar;
+            }else if(divisor < 0){
+                while(auxiliar >= -divisor){
+                    auxiliar -= -divisor;
+                    contador++;
+                }
+            }
+        }
+        return auxiliar;
+    }
 }
