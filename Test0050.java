@@ -18,11 +18,11 @@ public class Test0050{
         int resultado = 0;
         if(base != 0){
             if(aumento > 0){
-                for (int contador = 1;contador <= aumento; contador++){
+                for (int contador = 1; contador <= aumento; contador++){
                     resultado += base;
                 }
             }else if(aumento < 0){
-                for (int contador = -1;contador >= aumento; contador--){
+                for (int contador = -1; contador >= aumento; contador--){
                     resultado += -base;
                 }
             }
@@ -101,5 +101,26 @@ public class Test0050{
             }
         }
         return auxiliar;
+    }
+    
+    /**
+     * Calculo de potencias
+     */
+    public int potencia(int base, int exponente){
+        int resultado = 0;
+        if(base != 0){
+            if(exponente > 0){
+                resultado = 1;
+                for(int contador = 1; contador <= exponente; contador++){
+                    resultado = multiNum(resultado, base);
+                }
+            }else{
+                resultado = 1;
+                // Si los parametros del ejercicio permitieran numeros decimales
+                // habria que calcular la potencia dividiendo
+                // Ejemplo: 5^-3 seria 1 / (5*3)
+            }
+        }
+        return resultado;
     }
 }
