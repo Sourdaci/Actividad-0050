@@ -88,32 +88,14 @@ public class Test0050{
      * Divide 2 numeros enteros y calcula el resto
      */
     public int resto(int dividendo, int divisor){
-        int auxiliar = 0;
-        if(dividendo > 0){
-            auxiliar = dividendo;
-            if(divisor > 0){
-                while(auxiliar >= divisor){
-                    auxiliar -= divisor;
-                }
-            }else if(divisor < 0){
-                while(auxiliar >= -divisor){
-                    auxiliar -= -divisor;
-                }
-            }
-        }else if(dividendo < 0){
-            auxiliar = -dividendo;
-            if(divisor > 0){
-                while(auxiliar >= divisor){
-                    auxiliar -= divisor;
-                }
-            }else if(divisor < 0){
-                while(auxiliar >= -divisor){
-                    auxiliar -= -divisor;
-                }
-            }
-            auxiliar = -auxiliar;
-        }
-        return auxiliar;
+        // sacamos el resultado de la division
+        int cociente = diviNum(dividendo, divisor);
+        // multiplicamos el resultado de la division por el cociente
+        int auxiliar = multiNum(cociente, divisor);
+        // devolvemos la diferencia entre el dividendo y el resultado de la multiplicacion
+        return (dividendo - auxiliar);
+        // no hay que retocar el signo de ningun operando, se devolvera siempre el correcto
+        // y si el resto es cero, se devuelve bien igualmente
     }
     
     /**
