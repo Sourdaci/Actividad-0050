@@ -102,17 +102,19 @@ public class Test0050{
      * Calculo de potencias
      */
     public int potencia(int base, int exponente){
+        // potencia: la base se multiplica por si misma tantas veces como indique el exponente
         int resultado = 0;
-        if(base != 0){
-            resultado = 1;
+        if(base != 0){ // cero elevado a algo es siempre cero
+            resultado = 1; // algo elevado a cero es siempre uno
             if(exponente > 0){
+                // bucle for que multiplica la base por si misma
                 for(int contador = 1; contador <= exponente; contador++){
                     resultado = multiNum(resultado, base);
                 }
             }
             // Si los parametros del ejercicio permitieran numeros decimales
             // habria que calcular la potencia de exponente negativo dividiendo
-            // Ejemplo: 5^-3 seria 1 / (5*3)
+            // Ejemplo: 5^-3 seria 1 / (5*5*5)
         }
         return resultado;
     }
@@ -124,25 +126,27 @@ public class Test0050{
      * La calculadora esta limitada a 1000
      */
     public int raizCuadrada(int numero){
-        int resultado = -1;
-        if(numero > -1 || numero < 1001){
-            boolean found = false;
-            int contador = 0;
-            int auxiliar = 0;
-            while(!found && auxiliar < 1001){
-                auxiliar = multiNum(contador, contador);
-                if(auxiliar == numero){
-                    found = true;
-                    resultado = contador;
+        int resultado = -1; // resultado a devolver por defecto: fuera de rango o no exacto
+        if(numero > -1 || numero < 1001){ // comprueba si el numero esta dentro de rango
+            boolean found = false; // condicion de salida 1: encontrar la raiz
+            int contador = 0; // trabajamos con esta variable como resultado temporal
+            int auxiliar = 0; // condicion de salida 2: ser menor que el numero y que 1001
+            // no contemplamos que sea igual que el numero porque ya se habra encontrado la raiz
+            while(!found && auxiliar < 1001 && auxiliar < numero){
+                auxiliar = multiNum(contador, contador); // sacamos el resultado de contador^2
+                // se hace con multiplicacion porque ahorra tiempo de ejecucion respecto a potencia
+                if(auxiliar == numero){ // si contador^2 es igual al numero, hemos hallado la raiz
+                    found = true; // raiz encontrada
+                    resultado = contador; // asignamos el valor al resultado para devolverlo
                 }else{
                     contador++;
                 }
             }
-            if(!found){
+            if(!found){ // si salimos del while y no se ha encontrado la raiz
                 System.out.println("El numero introducido no tiene raiz cuadrada exacta");
             }
-        }else{
-            System.out.println("El numero introducido es invalido");
+        }else{ // el println lo explica por si solo
+            System.out.println("El numero introducido es invalido [0, 1000]");
         }
         return resultado;
     }
